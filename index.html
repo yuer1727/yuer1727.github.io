@@ -107,9 +107,41 @@
 		
             
 		
+            
+		
         
         <!-- render other articles -->
         
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-08-08 </div>
+			<div class="article-title"><a href="/2016/08/08/revel与play直观性通偏面性对比/" >revel与play直观性通偏面性对比</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="印象"><a href="#印象" class="headerlink" title="印象"></a>印象</h1><p>工作中用到的javaweb框架是根据play改过来的，最近在看golang的web框架revel，趁有空记录一下两者对比的情况。对比只是简单的通过ab做压测跑出报告，并不是很专业，望见谅:</p>
+<h1 id="初体验-play"><a href="#初体验-play" class="headerlink" title="初体验 play"></a>初体验 play</h1><p>play1.x使用python托管项目，各种命令敲起来挺爽。无需依托web容器布署（如tomcat ），对于我来讲很吸引。对于一个机器来讲，只要有jdk运行环境，一个eclipse无需装什么插件，把play项目创建，敲几条python命令就可以轻构有hello world跑起来了。听起来都有点心动了。（为什么不是需要容器是因为底层用netty的http库）运行起来：<br><img src="/img/play_helloworld图.png" alt="enter description here" title="play helloworld图.png"></p>
+<h1 id="初体验-revel"><a href="#初体验-revel" class="headerlink" title="初体验 revel"></a>初体验 revel</h1><p>  用golang实现的revel是基于golang的httpserver，其设计思跟和play1.x一样，用起来也是一样一样的。可以认为它就是play的golang实现。也来张helloworld：<br>  <img src="/img/revel_helloworld.png" alt="enter description here" title="revel helloworld.png"></p>
+<h1 id="来吧，ab跑起来"><a href="#来吧，ab跑起来" class="headerlink" title="来吧，ab跑起来"></a>来吧，ab跑起来</h1><p>ab -n 5000 -c 10 <a href="http://100.84.250.166:9020/" target="_blank" rel="external">http://100.84.250.166:9020/</a><br>ab -n 5000 -c 10 <a href="http://100.84.250.166:9000/" target="_blank" rel="external">http://100.84.250.166:9000/</a></p>
+<p>play:<br><img src="/img/play_ab_5000_10.png" alt="enter description here" title="play ab 5000 10.png"></p>
+<p>revel:<br><img src="/img/revel_ab_5000_10.png" alt="enter description here" title="revel ab 5000 10.png"></p>
+<p> 无任何业务代码的情况下，两框架在10并发 5000请求的情况下性能非常相近。</p>
+
+	
+	</div>
+  <a type="button" href="/2016/08/08/revel与play直观性通偏面性对比/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
            
 			  
 	
@@ -137,7 +169,7 @@
 
 	
 	</div>
-  <a type="button" href="/2016/08/08/hello-world/#more" class="btn btn-default more">Leia Mais</a>
+  <a type="button" href="/2016/08/08/hello-world/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -168,7 +200,7 @@
 			
   <div id="site_search">
    <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Busca" class="st-search-input st-default-search-input form-control"/>
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
    </div>  
   <div id="local-search-result"></div>
   </div>
@@ -177,10 +209,12 @@
 		
 			
 	<div class="widget">
-		<h4>Categorias</h4>
+		<h4>Categories</h4>
 		<ul class="tag_box inline list-unstyled">
 		
 			<li><a href="/categories/hexo/">hexo<span>1</span></a></li>
+		
+			<li><a href="/categories/play-revel/">play revel<span>1</span></a></li>
 		
 		</ul>
 	</div>
@@ -190,6 +224,8 @@
 	<div class="widget">
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/golang/">golang<span>1</span></a></li>
 		
 			<li><a href="/tags/hexo/">hexo<span>1</span></a></li>
 		
@@ -201,8 +237,12 @@
 		
 			
 <div class="widget">
-  <h4>Posts recentes</h4>
+  <h4>Recent Posts</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/08/08/revel与play直观性通偏面性对比/" ><i class="fa fa-file-o"></i>revel与play直观性通偏面性对比</a>
+      </li>
     
       <li>
         <a href="/2016/08/08/hello-world/" ><i class="fa fa-file-o"></i>Hello World</a>

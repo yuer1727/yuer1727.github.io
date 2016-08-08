@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Jimmy Space</title>
+  <title>revel与play直观性通偏面性对比 | Jimmy Space</title>
   <meta name="author" content="John Doe">
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+  <meta name="description" content="印象工作中用到的javaweb框架是根据play改过来的，最近在看golang的web框架revel，趁有空记录一下两者对比的情况。对比只是简单的通过ab做压测跑出报告，并不是很专业，望见谅:
+初体验 playplay1.x使用python托管项目，各种命令敲起来挺爽。无需依托web容器布署（如to">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hello World"/>
+  <meta property="og:title" content="revel与play直观性通偏面性对比"/>
   <meta property="og:site_name" content="Jimmy Space"/>
 
   
@@ -91,7 +92,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Hello World</h1>
+			<h1 class="title title-inverse "> revel与play直观性通偏面性对比</h1>
 		</div>		
 	
 
@@ -111,15 +112,13 @@
 	<div class="mypage">		
 	  		
 
-	  <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+	  <h1 id="印象"><a href="#印象" class="headerlink" title="印象"></a>印象</h1><p>工作中用到的javaweb框架是根据play改过来的，最近在看golang的web框架revel，趁有空记录一下两者对比的情况。对比只是简单的通过ab做压测跑出报告，并不是很专业，望见谅:</p>
+<h1 id="初体验-play"><a href="#初体验-play" class="headerlink" title="初体验 play"></a>初体验 play</h1><p>play1.x使用python托管项目，各种命令敲起来挺爽。无需依托web容器布署（如tomcat ），对于我来讲很吸引。对于一个机器来讲，只要有jdk运行环境，一个eclipse无需装什么插件，把play项目创建，敲几条python命令就可以轻构有hello world跑起来了。听起来都有点心动了。（为什么不是需要容器是因为底层用netty的http库）运行起来：<br><img src="/img/play_helloworld图.png" alt="enter description here" title="play helloworld图.png"></p>
+<h1 id="初体验-revel"><a href="#初体验-revel" class="headerlink" title="初体验 revel"></a>初体验 revel</h1><p>  用golang实现的revel是基于golang的httpserver，其设计思跟和play1.x一样，用起来也是一样一样的。可以认为它就是play的golang实现。也来张helloworld：<br>  <img src="/img/revel_helloworld.png" alt="enter description here" title="revel helloworld.png"></p>
+<h1 id="来吧，ab跑起来"><a href="#来吧，ab跑起来" class="headerlink" title="来吧，ab跑起来"></a>来吧，ab跑起来</h1><p>ab -n 5000 -c 10 <a href="http://100.84.250.166:9020/" target="_blank" rel="external">http://100.84.250.166:9020/</a><br>ab -n 5000 -c 10 <a href="http://100.84.250.166:9000/" target="_blank" rel="external">http://100.84.250.166:9000/</a></p>
+<p>play:<br><img src="/img/play_ab_5000_10.png" alt="enter description here" title="play ab 5000 10.png"></p>
+<p>revel:<br><img src="/img/revel_ab_5000_10.png" alt="enter description here" title="revel ab 5000 10.png"></p>
+<p> 无任何业务代码的情况下，两框架在10并发 5000请求的情况下性能非常相近。</p>
 	  
 	</div>
 
@@ -128,14 +127,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2016/08/08/revel与play直观性通偏面性对比/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next disabled"><a>Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		   <li class="next"><a href="/2016/08/08/hello-world/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -197,7 +196,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/hexo/">hexo<span>1</span></a></li>
+    <li><a href="/categories/play-revel/">play revel<span>1</span></a></li>
   </li>
 
     </ul>
@@ -210,7 +209,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/hexo/">hexo<span>1</span></a></li>
+  <li><a href="/tags/golang/">golang<span>1</span></a></li>
     </ul>
 	</div>
 		
